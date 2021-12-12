@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import {
+  CHeader,
+  CTables,
+  CFooter,
+  CFormModal,
+  CNotificationModal,
+} from "./elements";
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div class="container-xl">
+        <div class="table-responsive">
+          <div class="table-wrapper">
+            <CHeader />
+            <CTables />
+            <CFooter />
+          </div>
+        </div>
+      </div>
+      {showForm && <CFormModal />}
+      {showNotification && <CNotificationModal />}
+    </>
   );
 }
 
